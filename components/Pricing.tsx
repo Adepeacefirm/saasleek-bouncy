@@ -19,7 +19,7 @@ const Pricing = () => {
       </div>
       <section className='my-10'>
         <div className='flex justify-center gap-1 items-center font-bold text-sm border border-gray-400 w-max mx-auto p-1 rounded-3xl'>
-            <p onClick={()=>setPlan("monthly")} className={`${plan === "monthly" ? "bg-primary text-white" : "bg-white text-primary"} py-2 px-4 rounded-3xl text-white`}>Monthly</p>
+            <p onClick={()=>setPlan("monthly")} className={`${plan === "monthly" ? "bg-primary text-white" : "bg-white text-primary"} py-2 px-4 rounded-3xl`}>Monthly</p>
             <p onClick={()=>setPlan("yearly")} className={`${plan === "yearly" ? "bg-primary text-white" : "bg-white text-primary"} py-2 px-4 rounded-3xl `}>Yearly</p>
         </div>
         <p className="text-center my-3">Save up to 50% by paying yearly</p>
