@@ -1,8 +1,13 @@
+"use client";
+
 import Image from "next/image";
 import saasleek_logo from "@/assets/saasleeklogo.avif";
 import Link from "next/link";
+import { useState } from "react";
+import MobileNavbar from "./MobileNavbar";
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(true);
   return (
     <div className="fixed w-full z-50 bg-white shadow-xs ">
       <header className="w-[92%] mx-auto flex justify-between items-center py-3 ">
@@ -25,22 +30,25 @@ const Navbar = () => {
         </div>
 
         <div className="p-2.5 bg-black rounded-lg lg:hidden">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
-            stroke="currentColor"
-            className="size-6 text-white"
+          <div
+            onClick={() => setIsOpen((isOpen) => !isOpen)}
+            className="w-6 h-6 flex gap-1 flex-col justify-center items-center cursor-pointer"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M3.75 9h16.5m-16.5 6.75h16.5"
+            {/* top line */}
+            <span
+              className={`block h-0.5 w-6 transition-all duration-300 ${isOpen ? "rotate-45 translate-y-1.5 bg-green-text" : "bg-white"}`}
             />
-          </svg>
+
+            {/* bottom line */}
+            <span
+              className={`block h-0.5 w-6 transition-all duration-300 mt-1 ${isOpen ? "-rotate-45 -translate-y-1 bg-green-text" : "bg-white"}`}
+            />
+          </div>
         </div>
       </header>
+
+      {/* Mobile Menu */}
+      <div>{isOpen && <MobileNavbar />}</div>
     </div>
   );
 };
