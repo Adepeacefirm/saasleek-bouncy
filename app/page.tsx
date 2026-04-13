@@ -1,4 +1,5 @@
 import Benefits from "@/components/Benefits";
+import Blogs from "@/components/Blogs";
 import Features from "@/components/Features";
 import Focus from "@/components/Focus";
 import Hero from "@/components/Hero";
@@ -23,6 +24,7 @@ const page = () => {
       <Level />
       <Testimonials />
       <Pricing />
+      <Blogs />
     </div>
   );
 };
