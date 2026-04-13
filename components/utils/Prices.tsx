@@ -1,6 +1,6 @@
 import React from "react";
 
-const Prices = ({basicPrice, proPrice, premiumPrice}) => {
+const Prices = ({basicPrice, proPrice, premiumPrice}: {basicPrice: number, proPrice: number, premiumPrice: number}) => {
   const deliverables = [
     "Data Integration",
     "Real-Time Sync",

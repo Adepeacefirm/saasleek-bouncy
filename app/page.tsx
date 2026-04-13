@@ -1,7 +1,9 @@
 import Benefits from "@/components/Benefits";
 import Blogs from "@/components/Blogs";
+import FAQ from "@/components/FAQ";
 import Features from "@/components/Features";
 import Focus from "@/components/Focus";
+import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Level from "@/components/Level";
 import MoreFeatures from "@/components/MoreFeatures";
@@ -9,7 +11,6 @@ import Navbar from "@/components/Navbar";
 import Pricing from "@/components/Pricing";
 import Process from "@/components/Process";
 import Testimonials from "@/components/Testimonials";
-import React from "react";
 
 const page = () => {
   return (
@@ -25,6 +26,8 @@ const page = () => {
       <Testimonials />
       <Pricing />
       <Blogs />
+      <FAQ />
+      <Footer />
     </div>
   );
 };

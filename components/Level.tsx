@@ -26,7 +26,7 @@ const Level = () => {
     <section>
       <div className="text-center ">
         <p className="text-xs text-primary w-max mx-auto py-1 px-2 rounded-full font-bold tracking-widest">
-          Level Up with AI!
+          LEVEL UP WITH AI!
         </p>
         <p className="text-3xl px-2 w-full lg:text-5xl font-bold my-2 tracking-tightest">
           Old School vs. AI Cool

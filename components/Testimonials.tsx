@@ -85,21 +85,21 @@ const Testimonials = () => {
             <div className="flex items-center gap-5">
               <div className="pr-4 pb-4 bg-primary rounded-br-2xl">
                 <Image
-                  src={testimonials[index].image}
+                  src={item.image}
                   alt={`Testimonial ${index + 1}`}
                   className="rounded-2xl w-15"
                 />
               </div>
               <div>
-                <p className="text-xl text-white">{testimonials[index].name}</p>
+                <p className="text-xl text-white">{item.name}</p>
                 <p className="text-xs text-white/50 mt-1">
-                  {testimonials[index].speciality}
+                  {item.speciality}
                 </p>
               </div>
             </div>
             <div className="flex justify-center gap-5 mt-8">
               <p className="text-7xl text-green-text ml-5">{`"`}</p>
-              <p className="text-">{testimonials[index].review}</p>
+              <p className="text-">{item.review}</p>
             </div>
           </section>
         ))}
