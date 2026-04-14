@@ -1,3 +1,5 @@
+"use client";
+
 import man_with_laptop from "@/assets/laptop-man.avif";
 import chart_business from "@/assets/chart-business.avif";
 import chart_marketing from "@/assets/chart-marketing.avif";
@@ -12,10 +14,59 @@ import choose6 from "@/assets/choose6.svg";
 import choose7 from "@/assets/choose7.svg";
 import choose8 from "@/assets/choose8.svg";
 import choose9 from "@/assets/choose9.svg";
+import { motion, useScroll, useSpring, useTransform } from "motion/react";
+import { useEffect, useRef, useState } from "react";
 
 const Hero = () => {
+  const chooses = [
+    choose1,
+    choose2,
+    choose3,
+    choose4,
+    choose5,
+    choose6,
+    choose7,
+    choose8,
+    choose9,
+  ];
+
+  const ref = useRef(null);
+
+  // track scroll progress of page
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+  }, []);
+
+  const scrollY = useRef(0);
+
+  const scaleSpring = useSpring(1.3, {
+    stiffness: 120,
+    damping: 30,
+  });
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const y = window.scrollY;
+
+      // map scroll to scale range
+      const maxScroll = 600; // adjust sensitivity here
+
+      let progress = y / maxScroll;
+      progress = Math.min(Math.max(progress, 0), 1);
+
+      const scaleValue = 1.3 - progress * 0.3; // 1.3 → 1.0
+
+      scaleSpring.set(scaleValue);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [scaleSpring]);
+
   return (
-    <main className="w-[92%] mx-auto mb-8 mt-30">
+    <main className="w-[92%] mx-auto mb-8 mt-15">
       <section className="flex justify-center items-center gap-1.5 bg-[hsl(0,0%,95%)] w-max mx-auto p-1 rounded-full border border-[hsl(0,0%,75%)]">
         <div className="bg-black text-white text-[10px] p-1 rounded-full font-bold">
           <p>NEW</p>
@@ -54,7 +105,7 @@ const Hero = () => {
       </section>
 
       <section>
-        <button className="text-white bg-primary py-3 px-7 rounded-full text-sm font-medium block mx-auto my-7 shadow-gray-300 shadow-xl">
+        <button className="text-white bg-primary py-3 px-7 rounded-full text-sm font-medium block mx-auto my-7 shadow-gray-300 shadow-xl hover:text-green-light cursor-pointer">
           Get Started for free
         </button>
 
@@ -135,36 +186,62 @@ const Hero = () => {
         </div>
       </section>
 
-
       {/* When performance matters */}
 
-      <section className="relative border-10 lg:border-30 border-primary bg-primary rounded-4xl my-20 shadow-gray-500 shadow-[0_40px_80px_-12px_rgba(0,0,0,0.25)]">
+      <section className="relative border-10 lg:border-30 border-primary bg-primary rounded-4xl my-20 shadow-gray-500 shadow-[0_40px_80px_-12px_rgba(0,0,0,0.25)] overflow-hidden">
+        <motion.div
+          style={{ scale: scaleSpring }}
+          className="will-change-transform"
+        >
+          <Image
+            src={man_with_laptop}
+            alt="Man with laptop"
+            className="w-full h-auto rounded-4xl"
+            unoptimized={true}
+          />
+        </motion.div>
 
-        <Image
-          src={man_with_laptop}
-          alt="Man with laptop"
-          className="w-full h-auto rounded-4xl"
-          unoptimized={true}
-        />
-
-        <Image
-          src={chart_business}
-          alt="Chart business"
-          className="absolute top-2 left-2 lg:top-4 lg:left-8 w-[32%]"
-          unoptimized={true}
-        />
-        <Image
-          src={chart_marketing}
-          alt="Chart marketing"
-          className="absolute bottom-2 left-2 w-[26%] h-16 sm:h-auto lg:bottom-4 lg:left-8 lg:max-h-60"
-          unoptimized={true} 
-        />
-        <Image
-          src={chart_team}
-          alt="Chart team"
-          className="absolute bottom-3 right-3 w-[25%] lg:right-4 lg:bottom-4"
-          unoptimized={true}
-        />
+        <motion.div
+          initial={{ opacity: 0, y: 40, scale: 0.95 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="absolute top-2 left-2 lg:top-4 lg:left-8 w-full"
+        >
+          <Image
+            src={chart_business}
+            alt="Chart business"
+            className="w-[32%]"
+            unoptimized={true}
+          />
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 40, scale: 0.95 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="absolute bottom-2 left-2 w-full lg:bottom-4 lg:left-8"
+        >
+          <Image
+            src={chart_marketing}
+            alt="Chart marketing"
+            className=" w-[26%] h-16 sm:h-auto lg:max-h-60"
+            unoptimized={true}
+          />
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: -40, scale: 0.95 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <Image
+            src={chart_team}
+            alt="Chart team"
+            className="w-[25%] absolute bottom-3 right-3 lg:right-4 lg:bottom-4"
+            unoptimized={true}
+          />
+        </motion.div>
       </section>
 
       <section className="my-32">
@@ -176,15 +253,14 @@ const Hero = () => {
         </h1>
 
         <div className="flex flex-wrap gap-3 lg:gap-10 justify-center items-center px-8 my-10 lg:w-[50%] lg:mx-auto">
-          <Image src={choose1} alt="Choose 1" className="mx-auto w-13" />
-          <Image src={choose2} alt="Choose 2" className="mx-auto w-16" />
-          <Image src={choose3} alt="Choose 3" className="mx-auto w-16" />
-          <Image src={choose4} alt="Choose 4" className="mx-auto w-13" />
-          <Image src={choose5} alt="Choose 5" className="mx-auto w-13" />
-          <Image src={choose6} alt="Choose 6" className="mx-auto w-16" />
-          <Image src={choose7} alt="Choose 7" className="mx-auto w-13" />
-          <Image src={choose8} alt="Choose 8" className="mx-auto w-16" />
-          <Image src={choose9} alt="Choose 9" className="mx-auto w-16" />
+          {chooses.map((item, index) => (
+            <Image
+              key={index}
+              src={item}
+              alt={`Choose ${index + 1}`}
+              className="mx-auto w-13"
+            />
+          ))}
         </div>
       </section>
     </main>

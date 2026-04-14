@@ -8,13 +8,15 @@ import Hero from "@/components/Hero";
 import Level from "@/components/Level";
 import MoreFeatures from "@/components/MoreFeatures";
 import Navbar from "@/components/Navbar";
+import Notification from "@/components/Notification";
 import Pricing from "@/components/Pricing";
 import Process from "@/components/Process";
 import Testimonials from "@/components/Testimonials";
 
 const page = () => {
   return (
-    <div>
+    <div className="scroll-smooth">
+      <Notification />
       <Navbar />
       <Hero />
       <Features />

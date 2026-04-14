@@ -57,7 +57,7 @@ const Features = () => {
 
       {/* Unified Dashboard */}
 
-      <section className="flex flex-col-reverse lg:flex-row lg:items-center gap-5 lg:gap-5 my-10 bg-green-bg/50 rounded-2xl py-3 lg:py-7 lg:px-3">
+      <section id="feature-1" className="flex flex-col-reverse lg:flex-row lg:items-center gap-5 lg:gap-5 my-10 bg-green-bg/50 rounded-2xl py-3 lg:py-7 lg:px-3">
         <div className="px-7 rounded-lg sm:w-[70%] sm:mx-auto">
           <motion.h2
             variants={containerVariants}

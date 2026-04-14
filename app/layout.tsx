@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.className} h-full antialiased`}
+      className={`${inter.className} h-full antialiased scroll-smooth`}
     >
       <body cz-shortcut-listen="true" className="min-h-full flex flex-col">{children}</body>
     </html>
