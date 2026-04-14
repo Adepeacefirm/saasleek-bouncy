@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Prices from "./utils/Prices";
+import { motion } from "motion/react";
 
 const Pricing = () => {
   const [plan, setPlan] = useState("monthly");
@@ -11,7 +12,10 @@ const Pricing = () => {
   return (
     <section className="my-40">
       <div className="text-center">
-        <p className="text-xs text-primary font-bold tracking-widest">
+        <p
+          id="pricing"
+          className="text-xs text-primary font-bold tracking-widest"
+        >
           PRICING PLANS
         </p>
         <p className="w-[80%] mx-auto text-3xl lg:text-5xl font-bold my-2">
@@ -22,25 +26,30 @@ const Pricing = () => {
           platform today!
         </p>
       </div>
-      <section className="my-10">
+      <section className="my-10 cursor-pointer">
         <div className="flex justify-center gap-1 items-center font-bold text-sm border border-gray-400 w-max mx-auto p-1 rounded-3xl cursor-pointer">
-          <p
+          <button
             onClick={() => {
               setPlan("monthly");
               setBasicPrice(9);
               setProPrice(29);
               setPremiumPrice(79);
             }}
-            className={`${plan === "monthly" ? "bg-primary text-white" : "bg-white text-primary"} py-2 px-4 rounded-3xl`}
+            className={`${plan === "monthly" ? "bg-primary shadow-2xl shadow-black/80 text-white" : "bg-white text-primary"} cursor-pointer py-2 px-4 rounded-3xl`}
           >
             Monthly
-          </p>
-          <p
-            onClick={() => {setPlan("yearly"); setBasicPrice(99); setProPrice(159); setPremiumPrice(455);}}
-            className={`${plan === "yearly" ? "bg-primary text-white" : "bg-white text-primary"} py-2 px-4 rounded-3xl `}
+          </button>
+          <button
+            onClick={() => {
+              setPlan("yearly");
+              setBasicPrice(99);
+              setProPrice(159);
+              setPremiumPrice(455);
+            }}
+            className={`${plan === "yearly" ? "bg-primary shadow-2xl shadow-black/80 text-white" : "bg-white text-primary"} cursor-pointer py-2 px-4 rounded-3xl`}
           >
             Yearly
-          </p>
+          </button>
         </div>
         <p className="text-center my-3">Save up to 50% by paying yearly</p>
       </section>

@@ -27,47 +27,35 @@ const Navbar = () => {
     };
   }, []);
 
+  const navLinks = [
+    { href: "/about", label: "About" },
+    { href: "#pricing", label: "Pricing", isAnchor: true },
+    { href: "/blog", label: "Blog" },
+    { href: "/reviews", label: "Reviews" },
+    { href: "/changelog", label: "Changelog" },
+    { href: "/docs", label: "Docs" },
+    { href: "/waitlist", label: "Waitlist" },
+    { href: "/contact", label: "Contact" },
+  ];
+
   return (
     <div className="sticky w-full z-50 bg-white shadow-xs top-0">
       <header className="w-[92%] mx-auto flex justify-between items-center py-3 ">
         <div>
-          <Image src={saasleek_logo} alt="logo" />
+          <Link href="/" className="cursor-pointer">
+            <Image src={saasleek_logo} alt="logo" />
+          </Link>
         </div>
-
-        <nav className="hidden lg:flex items-center justify-center gap-8 font-medium">
-          <Link className="cursor-pointer hover:text-green-text" href="/about">
-            About
-          </Link>
-          <Link
-            className="cursor-pointer hover:text-green-text"
-            href="/pricing"
-          >
-            Pricing
-          </Link>
-          <Link className="cursor-pointer hover:text-green-text" href="/blog">
-            Blog
-          </Link>
-          <Link
-            className="cursor-pointer hover:text-green-text"
-            href="/changelog"
-          >
-            Reviews
-          </Link>
-          <Link className="cursor-pointer hover:text-green-text" href="/docs">
-            About
-          </Link>
-          <Link
-            className="cursor-pointer hover:text-green-text"
-            href="/waitlist"
-          >
-            Waitlist
-          </Link>
-          <Link
-            className="cursor-pointer hover:text-green-text"
-            href="/contact"
-          >
-            Contact
-          </Link>
+        <nav className="hidden lg:flex items-center justify-center gap-5 font-medium">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="cursor-pointer hover:text-green-text"
+            >
+              {link.label}
+            </Link>
+          ))}
         </nav>
 
         <div className="hidden py-2 px-6 bg-black text-white rounded-full lg:block hover:text-green-light cursor-pointer">
@@ -93,7 +81,7 @@ const Navbar = () => {
       </header>
 
       {/* Mobile Menu */}
-      <div>{isOpen && <MobileNavbar />}</div>
+      <div>{isOpen && <MobileNavbar setIsOpen={setIsOpen} />}</div>
     </div>
   );
 };

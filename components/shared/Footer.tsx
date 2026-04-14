@@ -1,3 +1,5 @@
+"use client";
+
 import robot from "@/assets/footer-robot.avif";
 import Image from "next/image";
 import read1 from "@/assets/read1.avif";
@@ -5,6 +7,7 @@ import read2 from "@/assets/read2.avif";
 import read3 from "@/assets/read3.avif";
 import read4 from "@/assets/read4.avif";
 import read5 from "@/assets/read5.avif";
+import { motion } from "motion/react";
 
 const Footer = () => {
   const nav1 = [
@@ -29,7 +32,7 @@ const Footer = () => {
   ];
   return (
     <div>
-      <section className="flex flex-col lg:flex-row lg:items-center lg:justify-between bg-green-text bg-[radial-gradient(circle,rgba(255,255,255,0.15)_2px,transparent_1px)] bg-size-[20px_20px] pt-5 w-[97%] mx-auto rounded-top-4xl py-5 lg:px-10">
+      <section className="flex flex-col lg:flex-row lg:items-center lg:justify-between bg-green-text bg-[radial-gradient(circle,rgba(255,255,255,0.15)_2px,transparent_1px)] bg-size-[20px_20px] pt-5 w-[97%] mx-auto rounded-top-4xl py-5 lg:px-10 overflow-hidden">
         <div className="w-[92%] lg:w-[55%] mx-auto lg:mx-0 lg:ml-1">
           <h2 className="text-3xl sm:text-2xl lg:text-5xl text-center lg:text-start font-bold my-5">
             Ready to Transform Your Business with SaaSleek?
@@ -42,11 +45,19 @@ const Footer = () => {
             Get started for free
           </button>
         </div>
-        <div className="lg:w-[30%]">
+        <motion.div
+          initial={{ opacity: 0, y: 80 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.4 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="lg:w-[30%]"
+        >
           <Image src={robot} alt="Footer Robot" className="w-full" />
-        </div>
+        </motion.div>
       </section>
-      <footer className="bg-primary py-15 w-[97%] mx-auto">
+
+      {/* dark region */}
+      <footer className="bg-primary py-15 w-[97%] mx-auto -z-50">
         <section>
           <div className="w-[90%] mx-auto flex flex-col lg:flex-row gap-5 lg:justify-between lg:items-center">
             {/* navigations */}
@@ -144,7 +155,7 @@ const Footer = () => {
                   placeholder="jane@framer.com"
                 />
                 <button
-                  className="bg-green-light text-primary py-2 px-4 block w-full rounded-full"
+                  className="bg-green-light hover:bg-green-text text-primary hover:text-white cursor-pointer tansition-all duration-300 py-2 px-4 block w-full rounded-full"
                   type="submit"
                 >
                   Submit
@@ -179,7 +190,10 @@ const Footer = () => {
                     className="w-13 rounded-3xl p-1 -ml-5 bg-primary"
                   />
                 </div>
-                <p className="text-white self-start">Join Community of <span className="text-green-light">7000+</span> Pros.</p>
+                <p className="text-white self-start">
+                  Join Community of{" "}
+                  <span className="text-green-light">7000+</span> Pros.
+                </p>
               </div>
             </div>
           </div>
@@ -187,12 +201,16 @@ const Footer = () => {
 
         {/* Saasleek */}
         <section>
-            <p className="text-center text-green-light text-[16vw] leading-none font-bold mt-20">Saasleek.ai</p>
-            <hr className="text-white/30 mt-10 b-3 w-[95%] mx-auto"/>
-            <div className="flex justify-between w-[90%] mx-auto items-center text-white my-3">
-                <p>Privacy Policy</p>
-                <p>Terms</p>
-            </div>
+          <p className="text-center text-green-light text-[16vw] leading-none font-bold mt-20">
+            SaaSleek.ai
+          </p>
+          <hr className="text-white/30 mt-10 b-3 w-[95%] mx-auto" />
+          <div className="flex gap-10 w-[90%] mx-auto items-center text-white my-3">
+            <p className="cursor-pointer hover:underline hover:text-green-light transition-all duration-300">
+              Privacy Policy
+            </p>
+            <p className="cursor-pointer hover:underline hover:text-green-light transition-all duration-300">Terms</p>
+          </div>
         </section>
       </footer>
     </div>

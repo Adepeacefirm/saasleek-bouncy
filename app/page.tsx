@@ -1,17 +1,17 @@
-import Benefits from "@/components/Benefits";
-import Blogs from "@/components/Blogs";
-import FAQ from "@/components/FAQ";
-import Features from "@/components/Features";
-import Focus from "@/components/Focus";
-import Footer from "@/components/Footer";
-import Hero from "@/components/Hero";
-import Level from "@/components/Level";
-import MoreFeatures from "@/components/MoreFeatures";
-import Navbar from "@/components/Navbar";
-import Notification from "@/components/Notification";
-import Pricing from "@/components/Pricing";
-import Process from "@/components/Process";
-import Testimonials from "@/components/Testimonials";
+import Benefits from "@/components/homepage/Benefits";
+import Blogs from "@/components/homepage/Blogs";
+import FAQ from "@/components/homepage/FAQ";
+import Features from "@/components/homepage/Features";
+import Focus from "@/components/homepage/Focus";
+import Footer from "@/components/shared/Footer";
+import Hero from "@/components/homepage/Hero";
+import Level from "@/components/homepage/Level";
+import MoreFeatures from "@/components/homepage/MoreFeatures";
+import Navbar from "@/components/shared/Navbar";
+import Notification from "@/components/homepage/Notification";
+import Pricing from "@/components/homepage/Pricing";
+import Process from "@/components/homepage/Process";
+import Testimonials from "@/components/homepage/Testimonials";
 
 const page = () => {
   return (

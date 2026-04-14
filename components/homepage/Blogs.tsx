@@ -42,7 +42,7 @@ const Blogs = () => {
       </div>
       <section className="w-[92%] mx-auto my-15 flex flex-col gap-8 lg:grid lg:grid-cols-3">
         {articles.map((item, index) => (
-          <section key={index}>
+          <section className="group cursor-pointer" key={index}>
             <div className="bg-primary group rounded-3xl">
               <div className="bg-primary relative rounded-3xl hover:rounded-4xl shadow-2xl group-hover:scale-85 transition-all duration-300 delay-100 cursor-pointer">
                 <Image
@@ -66,16 +66,16 @@ const Blogs = () => {
               {item.title}
             </p>
             <hr className=" mt-5 lg:mt-10 mb-5 text-3xl text-gray-300" />
-            <p className="flex items-center font-medium gap-3 w-[95%] mx-auto">
+            <p className="flex items-center font-medium gap-3 w-[95%] mx-auto group-hover:text-green-text transition-all duration-300">
               {item.readTime} Min read{" "}
-              <span className="w-3 h-3 text-[10px] font-bold rounded-full border bg-transparent flex items-center justify-center">
+              <span className="w-3 h-3 text-[10px] font-bold rounded-full border bg-transparent flex items-center justify-center group-hover:text-white group-hover:translate-x-2 group-hover:bg-primary transition-all duration-300">
                 {">"}
               </span>
             </p>
           </section>
         ))}
       </section>
-      <button className="block mx-auto my-8 lg:mt-20 py-3 px-8 text-white text-sm bg-primary shadow-xl shadow-black/30 rounded-full">
+      <button className="block mx-auto my-8 lg:mt-20 py-3 px-8 text-white text-sm bg-primary shadow-xl shadow-black/30 rounded-full cursor-pointer hover:text-green-light">
         Read All Blogs
       </button>
     </section>

@@ -42,9 +42,7 @@ const FAQ = () => {
     },
   ];
 
-  const [question1, setQuestion1] = useState(false);
-
-  const [openIndices, setOpenIndices] = useState<number[]>([]);
+  const [openIndices, setOpenIndices] = useState<number[]>([0]);
 
   const toggleFAQ = (index: number) => {
     setOpenIndices(
@@ -76,14 +74,14 @@ const FAQ = () => {
             <section
               key={index}
               onClick={() => toggleFAQ(index)}
-              className="w-[98%] mx-auto my-3"
+              className="w-[98%] mx-auto my-3 cursor-pointer group"
             >
               <div
                 className={`${isOpen ? "bg-primary text-green-light rounded-3xl shadow-2xl" : "text-primary bg-white"} flex justify-between items-center p-5`}
               >
                 <p className="text-l font-medium px-2">{item.question}</p>
                 <span
-                  className={`${isOpen ? "rotate-45" : "rotate-0 "} p-2 rounded-xl transition-transform duration-300 ease-in-out`}
+                  className={`${isOpen ? "rotate-45" : "rotate-0 group-hover:bg-green-light"} p-2 rounded-xl transition-all duration-300 ease-in-out`}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

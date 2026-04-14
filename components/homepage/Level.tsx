@@ -23,7 +23,7 @@ const Level = () => {
     "AI Precision",
   ];
   return (
-    <section>
+    <section className="lg:my-30">
       <div className="text-center ">
         <p className="text-xs text-primary w-max mx-auto py-1 px-2 rounded-full font-bold tracking-widest">
           LEVEL UP WITH AI!
@@ -70,7 +70,7 @@ const Level = () => {
         </div>
 
         {/* Saasleek AI */}
-        <div className="bg-primary w-[95%] lg:w-[50%] mx-auto rounded-3xl pt-2 pb-8">
+        <div className="bg-primary w-[95%] lg:w-[50%] mx-auto rounded-3xl pt-2 pb-8 shadow-2xl">
           <h2 className="text-center text-2xl font-bold my-10 text-white">Saasleek AI</h2>
           <div className="flex flex-col gap-3">
             {saasleek.map((item, index) => (

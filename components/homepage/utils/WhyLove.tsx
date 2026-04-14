@@ -2,7 +2,7 @@ import React from "react";
 
 const WhyLove = () => {
   return (
-    <div className="flex flex-col lg:grid lg:grid-cols-3 gap-3">
+    <div className="my-10 lg:my-16 lg:w-[95%] lg:mx-auto flex flex-col lg:grid lg:grid-cols-3 gap-3">
       {/* Increased Efficiency */}
       <section className="group relative backdrop-blur-sm border border-white/10 rounded-3xl px-6 py-6">
         {/* Default gradient */}

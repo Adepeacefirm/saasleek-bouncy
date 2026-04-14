@@ -244,7 +244,13 @@ const Hero = () => {
         </motion.div>
       </section>
 
-      <section className="my-32">
+      <motion.section
+        initial={{ opacity: 0, y: 60, scale: 0.95 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="my-32"
+      >
         <h1 className="text-center font-bold text-3xl lg:text-5xl text-primary">
           When <span className="text-green-text">performance</span> matters,{" "}
           <span className="sm:block">
@@ -258,11 +264,11 @@ const Hero = () => {
               key={index}
               src={item}
               alt={`Choose ${index + 1}`}
-              className="mx-auto w-13"
+              className="mx-auto w-15 hover:scale-150 transition-transform duration-300"
             />
           ))}
         </div>
-      </section>
+      </motion.section>
     </main>
   );
 };
