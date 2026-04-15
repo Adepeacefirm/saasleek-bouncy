@@ -32,7 +32,7 @@ const Footer = () => {
   ];
   return (
     <div>
-      <section className="flex flex-col lg:flex-row lg:items-center lg:justify-between bg-green-text bg-[radial-gradient(circle,rgba(255,255,255,0.15)_2px,transparent_1px)] bg-size-[20px_20px] pt-5 w-[97%] mx-auto rounded-top-4xl py-5 lg:px-10 overflow-hidden">
+      <section className="flex flex-col lg:flex-row lg:items-center lg:justify-between bg-green-text bg-[radial-gradient(circle,rgba(255,255,255,0.15)_2px,transparent_1px)] bg-size-[20px_20px] pt-5 w-[97%] mx-auto rounded-t-4xl py-5 lg:px-10 overflow-hidden">
         <div className="w-[92%] lg:w-[55%] mx-auto lg:mx-0 lg:ml-1">
           <h2 className="text-3xl sm:text-2xl lg:text-5xl text-center lg:text-start font-bold my-5">
             Ready to Transform Your Business with SaaSleek?
@@ -52,7 +52,7 @@ const Footer = () => {
           transition={{ duration: 1, ease: "easeOut" }}
           className="lg:w-[30%]"
         >
-          <Image src={robot} alt="Footer Robot" className="w-full" />
+          <Image src={robot} alt="Footer Robot" className="w-full sm:w-[50%] sm:mx-auto lg:w-full" />
         </motion.div>
       </section>
 

@@ -2,6 +2,7 @@ import blog1 from "@/assets/blog1.avif";
 import blog2 from "@/assets/blog2.avif";
 import blog3 from "@/assets/blog3.avif";
 import Image from "next/image";
+import Link from "next/link";
 
 const Blogs = () => {
   const articles = [
@@ -76,7 +77,7 @@ const Blogs = () => {
         ))}
       </section>
       <button className="block mx-auto my-8 lg:mt-20 py-3 px-8 text-white text-sm bg-primary shadow-xl shadow-black/30 rounded-full cursor-pointer hover:text-green-light">
-        Read All Blogs
+        <Link href="/blog">Read All Blogs</Link>
       </button>
     </section>
   );
