@@ -1,5 +1,7 @@
 import Image from "next/image";
 import about from "@/assets/about.avif";
+import Journey from "@/components/about/Journey";
+import Meet from "@/components/about/Meet";
 
 const page = () => {
   return (
@@ -8,10 +10,10 @@ const page = () => {
         <p className="text-xs text-green-light bg-secondary w-max mx-auto py-1 px-2 rounded-full font-bold tracking-widest">
           ABOUT US
         </p>
-        <p className="w-[95%] mx-auto text-3xl text-white px-2 lg:text-5xl font-medium sm:font-bold my-2 ">
+        <p className="text-3xl text-white px-2 lg:text-5xl font-medium sm:font-bold my-2 ">
           About Our Company
         </p>
-        <p className="w-[85%] sm:w-[82%] lg:w-[55%] mx-auto text-white/70 lg:text-lg font-medium">
+        <p className="w-[90%] sm:w-[82%] lg:w-[55%] mx-auto text-white/70 lg:text-lg font-medium">
           A team of passionate innovators and tech enthusiasts dedicated to
           transforming how businesses manage their customer relationships.
         </p>
@@ -119,6 +121,11 @@ const page = () => {
           </p>
         </div>
       </section>
+
+      {/* Our journey */}
+
+      <Journey />
+      <Meet />
     </main>
   );
 };
