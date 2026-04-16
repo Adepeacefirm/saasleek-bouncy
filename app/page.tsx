@@ -25,7 +25,6 @@ const page = () => {
       <Pricing />
       <Blogs />
       <FAQ />
-      <Footer />
     </div>
   );
 };
