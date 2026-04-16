@@ -5,9 +5,11 @@ import saasleek_logo from "@/assets/saasleeklogo.avif";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import MobileNavbar from "./MobileNavbar";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
   useEffect(() => {
     const mediaQuery = window.matchMedia("(min-width: 1024px)");
 
@@ -29,7 +31,7 @@ const Navbar = () => {
 
   const navLinks = [
     { href: "/about", label: "About" },
-    { href: "#pricing", label: "Pricing", isAnchor: true },
+    { href: "/#pricing", label: "Pricing", isAnchor: true },
     { href: "/blog", label: "Blog" },
     { href: "/reviews", label: "Reviews" },
     { href: "/changelog", label: "Changelog" },
@@ -46,16 +48,23 @@ const Navbar = () => {
             <Image src={saasleek_logo} alt="logo" />
           </Link>
         </div>
-        <nav className="hidden lg:flex items-center justify-center gap-5 font-medium">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="cursor-pointer hover:text-green-text"
-            >
-              {link.label}
-            </Link>
-          ))}
+        <nav className="hidden lg:flex items-center justify-center font-medium">
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`cursor-pointer px-3 py-1 rounded-lg transition ${
+                  isActive
+                    ? "bg-gray-200 text-black"
+                    : "text-black hover:text-green-text"
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="hidden py-2 px-6 bg-black text-white rounded-full lg:block hover:text-green-light cursor-pointer">

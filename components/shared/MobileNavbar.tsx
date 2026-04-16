@@ -8,7 +8,7 @@ interface MobileNavbarProps {
 const MobileNavbar = ({ setIsOpen }: MobileNavbarProps) => {
   const navLinks = [
     { href: "/about", label: "About" },
-    { href: "#pricing", label: "Pricing", isAnchor: true },
+    { href: "/#pricing", label: "Pricing", isAnchor: true },
     { href: "/blog", label: "Blog" },
     { href: "/reviews", label: "Reviews" },
     { href: "/changelog", label: "Changelog" },
