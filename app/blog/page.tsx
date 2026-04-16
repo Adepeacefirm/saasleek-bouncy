@@ -194,7 +194,7 @@ const Page = () => {
                 <Image
                   src={item.image}
                   unoptimized
-                  alt="blog 1"
+                  alt={item.title}
                   className="rounded-3xl bg-primary w-full max-h-64 lg:max-h-72 object-cover"
                 />
                 <p className="py-1 px-2 bg-secondary/50 text-xs text-white font-medium absolute top-5 left-5 rounded-2xl tracking-widest">

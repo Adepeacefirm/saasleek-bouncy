@@ -1,3 +1,5 @@
+"use client";
+
 import test1 from "@/assets/test1.avif";
 import test2 from "@/assets/test2.avif";
 import test3 from "@/assets/test3.avif";
@@ -9,8 +11,10 @@ import read3 from "@/assets/read3.avif";
 import read4 from "@/assets/read4.avif";
 import read5 from "@/assets/read5.avif";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const Testimonials = () => {
+  const router = useRouter();
   const testimonials = [
     {
       name: "Finnian Graves",
@@ -92,9 +96,7 @@ const Testimonials = () => {
               </div>
               <div>
                 <p className="text-xl text-white">{item.name}</p>
-                <p className="text-xs text-white/50 mt-1">
-                  {item.speciality}
-                </p>
+                <p className="text-xs text-white/50 mt-1">{item.speciality}</p>
               </div>
             </div>
             <div className="flex justify-center gap-5 mt-8">
@@ -103,7 +105,10 @@ const Testimonials = () => {
             </div>
           </section>
         ))}
-        <section className="bg-green-light hover:bg-primary cursor-pointer border-2 border-green-light rounded-3xl flex justify-between items-center p-2 pr-4 group">
+        <section
+          onClick={() => router.push("/reviews")}
+          className="bg-green-light hover:bg-primary cursor-pointer border-2 border-green-light rounded-3xl flex justify-between items-center p-2 pr-4 group"
+        >
           <div className="flex items-center">
             <Image src={read1} alt="read1" className="w-15 rounded-3xl p-1" />
             <Image
