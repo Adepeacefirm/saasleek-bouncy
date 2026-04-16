@@ -66,7 +66,7 @@ const page = () => {
         <form className="bg-primary lg:w-[40%] lg:mx-auto flex flex-col gap-2 lg:flex-row items-center p-1 rounded-2xl lg:rounded-full">
           <input
             type="text"
-            className="w-full block py-2 px-4 rounded-full bg-white/20 placeholder:text-white/30 placeholder:text-sm"
+            className="w-full block py-2 px-4 rounded-full bg-white/20 placeholder:text-white/30 placeholder:text-sm text-white"
             placeholder="Enter your email"
           />
           <button
